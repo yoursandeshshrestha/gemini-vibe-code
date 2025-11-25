@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChromaFlow - Dynamic Art Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #FFFFFF;
+        color: #333333;
+        overflow-x: hidden;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Outfit', sans-serif;
+      }
+      /* Custom Scrollbar hide for cleaner look */
+      ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+      
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
+    </style>
+    <script>
+      // Polyfill process for browser environment to avoid ReferenceError
+      window.process = { env: { API_KEY: '' } };
+
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'dynamic-grey': '#333333',
+              'electric-blue': '#007BFF',
+              'radiant-pink': '#FF008C',
+              'lime-green': '#7CFC00',
+              'deep-violet': '#8A2BE2',
+              'pearl': '#E0E0E0',
+            },
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+              heading: ['Outfit', 'sans-serif'],
+            },
+            backgroundImage: {
+              'spectrum-gradient': 'linear-gradient(135deg, #007BFF 0%, #FF008C 50%, #7CFC00 100%)',
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "@google/genai": "https://esm.sh/@google/genai@0.1.0",
+    "framer-motion": "https://esm.sh/framer-motion@10.16.4?external=react,react-dom",
+    "gsap": "https://esm.sh/gsap@3.12.5",
+    "gsap/ScrollTrigger": "https://esm.sh/gsap@3.12.5/ScrollTrigger",
+    "lucide-react": "https://esm.sh/lucide-react@0.292.0?external=react,react-dom",
+    "@studio-freight/lenis": "https://esm.sh/@studio-freight/lenis@1.0.29",
+    "@studio-freight/react-lenis": "https://esm.sh/@studio-freight/react-lenis@0.0.40?external=react,react-dom",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "gsap/": "https://aistudiocdn.com/gsap@^3.13.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <!-- SVG Filters for Ripple Effect -->
+    <svg style="position: absolute; width: 0; height: 0; pointer-events: none;">
+      <defs>
+        <filter id="ripple-filter">
+          <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" result="turbulence" />
+          <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="20" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+        <filter id="chromatic-aberration">
+             <feOffset in="SourceGraphic" dx="2" dy="0" result="red"/>
+             <feOffset in="SourceGraphic" dx="-2" dy="0" result="blue"/>
+             <feBlend mode="screen" in="red" in2="blue"/>
+        </filter>
+      </defs>
+    </svg>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
