@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHRONOS | Temporal Architecture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #000000;
+        overflow: hidden; /* Canvas handles scroll */
+        color: #E0E0E0;
+      }
+      /* Custom scrollbar hide */
+      ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.0",
+    "@react-three/drei": "https://aistudiocdn.com/@react-three/drei@^10.7.7",
+    "three": "https://aistudiocdn.com/three@^0.181.2",
+    "@react-three/postprocessing": "https://aistudiocdn.com/@react-three/postprocessing@^3.0.4",
+    "postprocessing": "https://aistudiocdn.com/postprocessing@^6.38.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
