@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AELIA | Inheritance Quality</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=JetBrains+Mono:wght@100;300;400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              oatmeal: '#FAF8F5',
+              espresso: '#4A3730',
+              brass: '#A88F6D',
+              forest: '#4C6251',
+              taupe: '#D9D3CC',
+            },
+            fontFamily: {
+              serif: ['"Playfair Display"', 'serif'],
+              display: ['"Cinzel"', 'serif'],
+              sans: ['"Lato"', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            backgroundImage: {
+              'grain': "url('https://grainy-gradients.vercel.app/noise.svg')",
+            },
+            cursor: {
+              'none': 'none',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #FAF8F5;
+        color: #4A3730;
+        overflow-x: hidden;
+      }
+      /* Hide scrollbar for cleaner aesthetic */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #FAF8F5;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #D9D3CC;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #A88F6D;
+      }
+      
+      .text-patina {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent; 
+        background-image: linear-gradient(90deg, #4A3730 50%, #D9D3CC 50%);
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        transition: background-position 0.5s ease;
+      }
+      
+      .clip-text-image {
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
