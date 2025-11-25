@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AETHER | Real-Time Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              aether: {
+                black: '#FFFFFF',      /* Main Background: White */
+                navy: '#F8FAFC',       /* Secondary Background: Slate 50 */
+                white: '#0F172A',      /* Main Text: Slate 900 */
+                cyan: '#0891B2',       /* Accent: Cyan 600 */
+                violet: '#7C3AED',     /* Accent: Violet 600 */
+                grid: '#E2E8F0',       /* Grid Lines: Slate 200 */
+              }
+            },
+            fontFamily: {
+              mono: ['Space Mono', 'monospace'],
+              sans: ['Inter', 'sans-serif'],
+            },
+            backgroundImage: {
+              'scanline': 'linear-gradient(to bottom, transparent 50%, rgba(255, 255, 255, 0.5) 50%)',
+            }
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #FFFFFF;
+        color: #0F172A;
+        cursor: none; /* Custom cursor */
+        overflow-x: hidden;
+      }
+      
+      /* Hide default scrollbar */
+      ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+
+      /* Text selection */
+      ::selection {
+        background: rgba(8, 145, 178, 0.1);
+        color: #0891B2;
+      }
+
+      .glitch-text {
+        position: relative;
+      }
+      
+      .glitch-text::before,
+      .glitch-text::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .glitch-text::before {
+        left: 2px;
+        text-shadow: -1px 0 #7C3AED;
+        clip: rect(24px, 550px, 90px, 0);
+        animation: glitch-anim 3s infinite linear alternate-reverse;
+      }
+
+      .glitch-text::after {
+        left: -2px;
+        text-shadow: -1px 0 #0891B2;
+        clip: rect(85px, 550px, 140px, 0);
+        animation: glitch-anim 2s infinite linear alternate-reverse;
+      }
+
+      @keyframes glitch-anim {
+        0% { clip: rect(14px, 9999px, 127px, 0); }
+        20% { clip: rect(66px, 9999px, 16px, 0); }
+        40% { clip: rect(100px, 9999px, 88px, 0); }
+        60% { clip: rect(5px, 9999px, 10px, 0); }
+        80% { clip: rect(122px, 9999px, 52px, 0); }
+        100% { clip: rect(44px, 9999px, 11px, 0); }
+      }
+
+      .scanline-reveal {
+        position: relative;
+        overflow: hidden;
+      }
+      .scanline-reveal::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: #0891B2;
+        box-shadow: 0 0 10px #0891B2;
+        animation: scanline-sweep 1s ease-out forwards;
+        opacity: 0;
+      }
+      
+      @keyframes scanline-sweep {
+        0% { top: 0; opacity: 1; }
+        100% { top: 100%; opacity: 0; }
+      }
+
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(226, 232, 240, 0.8);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
